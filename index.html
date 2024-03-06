@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <p id="rand"></p>
+    <p id="breakdown"></p>
+    <p id="date"></p>
+
+   <script>
+        var rand, a, b, c, d, nummy;
+
+        rand = Math.floor(Math.random()*1001);
+
+        nummy = rand.toString();
+
+        a=nummy[0];
+        b=nummy[1];
+        c=nummy[2];
+        d=nummy[3];
+
+        document.getElementById("rand").innerHTML= "Randomly generated number: " + rand;
+
+        if (rand>=0 && rand<10){
+            document.getElementById("breakdown").innerHTML="Breakdown: " + a;
+        }
+        else if(rand>9 && rand<100){
+            document.getElementById("breakdown").innerHTML="Breakdown: " + a.concat("0", " , ", b.concat(" "));
+        }
+        else if(rand<1000 && rand>99){
+            if(b==0){
+                document.getElementById("breakdown").innerHTML="Breakdown: " + a.concat("00", " , ", b.concat(" , ", c.concat(" ")));
+            }
+            else {
+                document.getElementById("breakdown").innerHTML="Breakdown: " + a.concat("00", " , ", b.concat("0", " , ", c.concat(" ")));
+            }
+        }
+        else if (rand==1000){
+            document.getElementById("rand").innerHTML="Breakdown: " + a.concat("000", " , ", b.concat("00", " , ", c.concat("0", " , ", d.concat(" "))));
+        }
+        
+        document.getElementById("date").innerHTML= new Date();
+    </script>
+</body>
+</html>
